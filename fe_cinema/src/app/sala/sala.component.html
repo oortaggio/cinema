@@ -1,0 +1,17 @@
+<div class="grid">
+  <h1> Sala 1 </h1>
+  <div class="" *ngFor="let posto of seggiole">
+    <div class="childs">
+      <div class="quad" (click)="seleziona.emit(posto)" [ngClass]="{'quad-occ': posto.occupato === true}">
+         <h3>{{posto.codice}}</h3>
+         <div> {{posto.nominativo}} </div>
+       </div>
+       <ng-container *ngIf="posto.occupato; else elseTemplate">
+         Prenotato
+       </ng-container>
+       <ng-template #elseTemplate>
+         Libero
+       </ng-template>
+    </div>
+  </div>
+</div>
